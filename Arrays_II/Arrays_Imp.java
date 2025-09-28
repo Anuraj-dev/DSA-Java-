@@ -111,7 +111,7 @@ public class Arrays_Imp {
 
     public static void main(String[] args) {
         int num[] = {-1, 3, -5, 8};
-        int height[] = {4,2,0,6,3,2,5};
+        int height[] = {4,2,0,3,2,5};
         int prices[] = {7,1,5,3,6,4};
 
         //? Optimised maxSUM
@@ -124,7 +124,7 @@ public class Arrays_Imp {
         // trappingRainWater(height);
 
         //? Optimised to O(n) with the help of mams logic Trapping rainwater problem
-        // optimisedTrappedRainWater(height);
+        optimisedTrappedRainWater(height);
 
         //? Calculating max profit we can make
         buyAndSellStocks(prices);
