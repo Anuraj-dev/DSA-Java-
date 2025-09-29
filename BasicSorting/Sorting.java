@@ -60,8 +60,25 @@ public class Sorting {
         return arr;
     }
 
+    //? Insertion sort by me
+    //! Logic is flawed - Not correct
+    public static int[] insertionSortMe(int arr[]){
+        for(int i = 0; i<arr.length; i++){
+            for(int j =0; j<i; j++){
+                int temp = arr[j];
+                if(temp > arr[j+1]){
+                    arr[j+1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    
+
     //?For printing array
-    public static void printArr(Integer arr[]){
+    public static void printArr(int arr[]){
         System.out.print("[ ");
         for(int i = 0; i<arr.length; i++){
             System.out.print(arr[i] + " ");
@@ -70,6 +87,7 @@ public class Sorting {
     }
     public static void main(String[] args) {
         Integer arr[] = {5,4,1,3,2};
+        int arr2[] = {5,4,1,3,2};
         //? Bubble sort testing
         // printArr(bubbleSort(arr));
 
@@ -79,8 +97,11 @@ public class Sorting {
         //? Insertion sort
         // printArr(insertionSort(arr));
 
+        //? Mine Insertion sort
+        printArr(insertionSort(arr2));
+
         //? Inbuilt java sort
         Arrays.sort(arr, Collections.reverseOrder());             //? Inbuilt sort like Arrays.sort(arr, startingIndex, endingIndex(nonInclusive)) 
-        printArr(arr);
+        // printArr(arr);
     }
 }
