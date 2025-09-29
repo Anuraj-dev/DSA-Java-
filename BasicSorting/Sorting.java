@@ -1,5 +1,8 @@
 package BasicSorting;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class Sorting {
     //?Bubble sort
     public static int[] bubbleSort(int arr[]){
@@ -14,10 +17,10 @@ public class Sorting {
                     arr[j+1] = temp;
                     swap++;
                 }
-                //? If no swap is there than the array is already sotrted (simply return it)
-                if(swap ==0){
-                    return arr;
-                }
+            }
+            //? If no swap is there than the array is already sotrted (simply return it)
+            if(swap ==0){
+               return arr;
             }
         }
         return arr;
@@ -31,20 +34,34 @@ public class Sorting {
                 if(arr[minPos]>arr[j]){                 //! If u write < then this will give result in desc order
                     minPos = j;
                 }
-                if(minPos == i){                        //? If its already sorted than return
-                    return arr;
-                }
             }
-            //Swap
+            if(minPos != 1){
             int temp = arr[i];
             arr[i] = arr[minPos];
             arr[minPos] = temp;
+            }
+        }
+        return arr;
+    }
+
+    //? Insertion sort lets gooo
+    public static int[] insertionSort(int arr[]){
+        for(int i = 1; i<arr.length; i++){
+            int curr = arr[i];
+            int prev = i-1;
+            //Finding out the correct pos to insert
+            while(prev>=0 && arr[prev]>curr){
+                arr[prev+1] = arr[prev];
+                prev--;
+            }
+            //insertion
+            arr[prev+1] = curr;
         }
         return arr;
     }
 
     //?For printing array
-    public static void printArr(int arr[]){
+    public static void printArr(Integer arr[]){
         System.out.print("[ ");
         for(int i = 0; i<arr.length; i++){
             System.out.print(arr[i] + " ");
@@ -52,11 +69,18 @@ public class Sorting {
         System.out.println("]");
     }
     public static void main(String[] args) {
-        int arr[] = {5,4,1,3,2};
+        Integer arr[] = {5,4,1,3,2};
         //? Bubble sort testing
-        printArr(bubbleSort(arr));
+        // printArr(bubbleSort(arr));
 
         //?Selection Sort Lets goo
-        printArr(selectionSort(arr));
+        // printArr(selectionSort(arr));
+
+        //? Insertion sort
+        // printArr(insertionSort(arr));
+
+        //? Inbuilt java sort
+        Arrays.sort(arr, Collections.reverseOrder());             //? Inbuilt sort like Arrays.sort(arr, startingIndex, endingIndex(nonInclusive)) 
+        printArr(arr);
     }
 }
