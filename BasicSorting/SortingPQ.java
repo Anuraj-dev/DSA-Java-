@@ -1,5 +1,7 @@
 package BasicSorting;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
+
 public class SortingPQ {
     public static int[] bSort(int arr[]){
         for(int i = 0; i<arr.length-1;i++){
@@ -29,6 +31,45 @@ public class SortingPQ {
         return arr;
     }
 
+    public static int[] inserSort(int arr[]){
+        for(int i = 1; i<arr.length; i++){
+            int curr = arr[i];
+            int prev = i-1;
+            while(prev>=0 && arr[prev]<curr){
+                arr[prev+1] = arr[prev];  //Current = prev
+                prev--;
+            }
+            arr[prev+1] = curr;
+        }
+        return arr;
+    }
+
+    public static int[] countSort(int arr[]){
+        //Find max no
+        int maxNo = Integer.MIN_VALUE;
+        for(int i = 0; i<arr.length; i++){
+            maxNo = Math.max(maxNo, arr[i]);
+        }
+
+        //Freqency aray
+        int freq[] = new int[maxNo+1];
+        for(int i = 0; i<arr.length; i++){
+            freq[arr[i]]++;
+        }
+
+        //Sort
+        int j =0;
+        for(int i = maxNo; i>=0; i--){
+            while(freq[i]>0){
+                arr[j] = i;
+                j++;
+                freq[i]--;
+            }
+        }
+        return arr;
+
+    }
+
     //?For printing array
     public static void printArr(int arr[]){
         System.out.print("[ ");
@@ -46,5 +87,10 @@ public class SortingPQ {
         //? PQ-2 Selection Sort
         printArr(selectSort(num));
 
+        //? PQ-3 Insertion sort
+        printArr(inserSort(num));
+
+        //? PQ-4 Counting SOrt
+        printArr(countSort(num));
     }
 }
