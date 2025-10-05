@@ -26,7 +26,6 @@ public class Matrices {
         return new int[]{min,max};
     }
 
-
     public static void main(String[] args) {
         int matrix[][] = new int[3][3];                     //? Creation of 2D arrays
         //Calculate length of rows and cols
