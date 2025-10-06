@@ -36,19 +36,92 @@ public class MatricesPQ {
         }
         System.out.println();
     }
+
+    public static void calDiagonalSum(int matrix[][]){
+        int primaryDiagSum = 0, secondaryDiagSum= 0;
+        //*Calculate primary diag
+        int i = 0, j=0;
+        while(i<=matrix.length-1){
+            primaryDiagSum += matrix[i][j];
+            i++;
+            j++;
+        }
+
+        //* Calculate secondary diag
+        i = 0;
+        j = matrix[0].length-1;
+
+        while(i<=matrix.length-1){
+            if(i!=j){
+                secondaryDiagSum += matrix[i][j];
+            }
+            i++;
+            j--;
+        }
+
+        int totalDiagSum = primaryDiagSum + secondaryDiagSum;
+        
+        System.out.println("The Total Diagonal Sum of the Matrix is: " + totalDiagSum);
+    }
+
+    public static void optimisedDiagSum(int matrix[][]){
+        int sum = 0;
+        int n = matrix.length-1;
+        for(int i = 0; i<=n; i++){
+            //Primary diag
+            sum+= matrix[i][i];
+
+            //secondary diag
+            if(i != n-i){
+                sum+= matrix[i][n-i];
+            }
+        }
+        System.out.println("The Total optimised Diagonal Sum is: " + sum);
+    }
+
+    public static void staircaseSearch(int sortedMatrix[][], int key){
+        int i = 0, j = sortedMatrix[0].length-1;
+        
+        while(i<sortedMatrix.length && j>=0){
+            if(key == sortedMatrix[i][j]){
+                System.out.println("Key is found at idx: " + i + "," + j);
+                return;
+            }
+            if(key<sortedMatrix[i][j]){
+                //left
+                j--;
+            } 
+            else{
+                //Bottom
+                i++;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int matrix[][] = {
-            {1,2,3,4,50},
-            {5,6,7,8,51},
-            {9,10,11,12,52},
-            {13,14,15,16,53},
-            {17,18,19,20,54}
-        };
-        int matrix2[][] = {
-            {1, 2, 3}
+            {10,20,30,40},
+            {15,25,35,45},
+            {27,29,37,48},
+            {32,33,39,50}
         };
 
+        int matrix1[][] = {
+            {0,1,2},
+            {3,4,5},
+            {6,7,8}
+        };
+
+        
+
         //? Lets test this spiral matrix
-        printSpiralMatrix(matrix2);
+        // printSpiralMatrix(matrix2);
+
+        //? Calculating diag
+        // calDiagonalSum(matrix1);
+        // optimisedDiagSum(matrix1);
+
+        //? Staircase search
+        staircaseSearch(matrix, 33);
     }
 }
