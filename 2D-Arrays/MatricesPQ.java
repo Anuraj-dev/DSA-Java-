@@ -79,13 +79,13 @@ public class MatricesPQ {
         System.out.println("The Total optimised Diagonal Sum is: " + sum);
     }
 
-    public static void staircaseSearch(int sortedMatrix[][], int key){
+    public static boolean staircaseSearch(int sortedMatrix[][], int key){
         int i = 0, j = sortedMatrix[0].length-1;
         
         while(i<sortedMatrix.length && j>=0){
             if(key == sortedMatrix[i][j]){
                 System.out.println("Key is found at idx: " + i + "," + j);
-                return;
+                return true;
             }
             if(key<sortedMatrix[i][j]){
                 //left
@@ -96,6 +96,30 @@ public class MatricesPQ {
                 i++;
             }
         }
+        System.out.println("Key not Found");
+        return false;
+    }
+
+    //? Same but start from left bottom
+    public static boolean staircaseSearchV2(int sortedMatrix[][], int key){
+        int i = sortedMatrix.length-1, j = 0;
+        
+        while(j<sortedMatrix[0].length && i>=0){
+            if(key == sortedMatrix[i][j]){
+                System.out.println("Key is found at idx: " + i + "," + j);
+                return true;
+            }
+            if(key<sortedMatrix[i][j]){
+                //up
+                i--;
+            } 
+            else{
+                //right
+                j++;
+            }
+        }
+        System.out.println("Key not Found");
+        return false;
     }
 
     public static void main(String[] args) {
@@ -115,13 +139,14 @@ public class MatricesPQ {
         
 
         //? Lets test this spiral matrix
-        // printSpiralMatrix(matrix2);
+        // printSpiralMatrix(matrix);
 
         //? Calculating diag
         // calDiagonalSum(matrix1);
         // optimisedDiagSum(matrix1);
 
         //? Staircase search
-        staircaseSearch(matrix, 33);
+        // staircaseSearch(matrix, 33);
+        staircaseSearchV2(matrix, 33);
     }
 }
