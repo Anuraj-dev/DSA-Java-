@@ -9,7 +9,7 @@ public class Strings {
 
         //? Length function
         String fullName = "Anuraj Jit Saikia";
-        System.out.println(fullName.length());
+        System.out.println(fullName.length()/2);
 
         //? Concatenation
         String fname = "Raja";
@@ -18,6 +18,5 @@ public class Strings {
 
         //? CharAt funciton
         System.out.println(fullName.charAt(0));                         //CharAt funciton
-
     }
 }
