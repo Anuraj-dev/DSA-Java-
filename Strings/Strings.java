@@ -2,8 +2,8 @@ package Strings;
 
 public class Strings {
     public static void main(String[] args) {
-        char arr[] = {'a', 'b', 'c'};
-        String str = "abcd";
+        // char arr[] = {'a', 'b', 'c'};
+        // String str = "abcd";
 
         //! Strings are IMMUTABLE in JAVA
 
@@ -18,5 +18,30 @@ public class Strings {
 
         //? CharAt funciton
         System.out.println(fullName.charAt(0));                         //CharAt funciton
+
+        //? Compare 2 strings
+        String s1 = "Raja";
+        String s2 = "Raja";
+        String s3 = new String("Raja");
+
+        // if(s1 == s2){                                       //! Don't do like this this will compare only at object level
+        //     System.out.println("They are equal");
+        // } else{
+        //     System.out.println("Not Equal");
+        // }
+
+        // if(s1 == s3){
+        //     System.out.println("They are equal");
+        // } else{
+        //     System.out.println("Not Equal");
+        // }
+
+        if(s1.equals(s3)){                                    //! Always use equals(args) fn to comare 2 str                                      
+            System.out.println("They are equal");
+        } else{
+            System.out.println("They are not");
+        }
+
+        
     }
 }
