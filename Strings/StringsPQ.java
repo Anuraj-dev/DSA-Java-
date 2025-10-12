@@ -52,21 +52,65 @@ public class StringsPQ {
         System.out.println("The largest string is: " + largest);
     }
 
+    public static String toUpperCase(String str){
+        StringBuilder sb = new StringBuilder("");
+        
+        char ch = Character.toUpperCase(str.charAt(0));
+        sb.append(ch);
+
+        for(int i= 1; i<str.length(); i++){
+            if(str.charAt(i) == ' ' && i<str.length()-1){
+                sb.append(str.charAt(i));
+                i++;
+                ch = Character.toUpperCase(str.charAt(i));
+                sb.append(ch);
+            } else{
+                sb.append(str.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+    
+    public static String compressString(String str){
+        StringBuilder sb = new StringBuilder("");
+        int count = 0;
+        for(int i = 0; i<str.length();i++){
+            char ch = str.charAt(i);
+            count = 1;
+            while(i<str.length()-1 && ch == str.charAt(i+1)){
+                count++;
+                i++;
+            }
+                sb.append(str.charAt(i));
+            if(count>1){
+                sb.append(count);
+            }
+        }
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
-        String str = "HelloWorld";
-        String fruits[] = {"apple", "banana", "mango"};
+        String str = "aaabbcccdd";
+        // String fruits[] = {"apple", "banana", "mango"};
 
-        //? First question palindrome
-        System.out.println(checkPalindrome("racecar"));
+        // //? First question palindrome
+        // System.out.println(checkPalindrome("racecar"));
 
-        //? Second ques Shortest path
-        findShortestDist("WNEENESENNN");
+        // //? Second ques Shortest path
+        // findShortestDist("WNEENESENNN");
 
-        //? Substring tester homebuild
-        System.out.println(subString(str, 0, 5));
-        System.out.println(str.substring(0, 5));            //! In built available
+        // //? Substring tester homebuild
+        // System.out.println(subString(str, 0, 5));
+        // System.out.println(str.substring(0, 5));            //! In built available
 
-        //? Print largest string
-        printLargestStr(fruits);
+        // //? Print largest stringas
+        // printLargestStr(fruits);
+
+        //? Convert every first letter to uppercase
+        str = compressString(str);
+        for(int i = 0; i<str.length(); i++){
+            System.out.print(str.charAt(i));
+        }
+        System.out.println();
     }
 }
