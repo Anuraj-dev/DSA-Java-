@@ -12,7 +12,7 @@ public class StringsAQ {
 
         for(int i = 0; i<str.length(); i++){
             char ch = str.charAt(i);
-            if(Character.isLowerCase(ch) &&( ch == 'a' || ch == 'e' || ch =='i' || ch == 'o' || ch == 'u')){
+            if( ch == 'a' || ch == 'e' || ch =='i' || ch == 'o' || ch == 'u'){
                 count++;
             }
         }
@@ -63,6 +63,6 @@ public class StringsAQ {
         System.out.println(checkIfAnagrams("race", "care"));
 
         //? Different Approach PQ-4
-        System.out.println(optimisedCheckIfAnagrams("race", "care"));
+        System.out.println(optimisedCheckIfAnagrams("heart", "earth"));
     }
 }
