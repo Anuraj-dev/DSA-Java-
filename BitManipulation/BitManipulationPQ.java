@@ -59,9 +59,51 @@ public class BitManipulationPQ {
 
         return n & bitMask;
     }
+
+    //? Clear range of bits
+    public static int clearRangeOfBits(int n, int i, int j){
+        int a = (~(0) << j+1);
+        int b = ((1 << i) - 1);    //*It basically means that 2^i - 1 times of 1 generaion from right see the notion notes to obs the pattern*/
+
+        return ((a|b) & n);
+    }
+
+    //? Check if the no is power of 2 or not
+    public static boolean isPowerOftwo(int n){
+        return (n & (n-1)) == 0;
+    }
+
+    //? Count set bits in a no
+    public static int countSetBits(int n){
+        int count = 0;
+        while(n>0){
+            if((n&1) != 0){         // Checking if LSB is 1
+                count++;
+            }
+            n = n>>1;               // Shift the binary by 1 places
+        }
+
+        return count;
+    }
+    
+    //? Fast exponential calculation. Reduces TC from O(n) to O(logn)
+    public static int fastExpo(int a, int n){
+        int ans = 1;
+
+        while(n>0){
+            if((n&1) != 0){   //Check LSB
+                ans = ans * a;
+            }
+            a = a * a;
+            n = n >> 1;
+        }
+
+        return ans;    // Coooooolllll
+    }
+
     public static void main(String[] args) {
         // oddOrEven(11);
 
-        System.out.println(clearIBits(15, 2));
+        System.out.println(fastExpo(5,3));
     }
 }
