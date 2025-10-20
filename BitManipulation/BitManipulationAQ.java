@@ -12,10 +12,21 @@ public class BitManipulationAQ {
         return new int[]{a, b};
     }
 
-
+    //? Add 1 to an int using bit wise operator
+    public static int addOne(int n){
+        n = ~n;
+        return ~n+1;
+    }
     public static void main(String[] args) {
         //? Checking
-        int nums[] = swapTwoNum(5, 8);
-        System.out.println("a = " + nums[0] + " b = " + nums[1]);
+        // int nums[] = swapTwoNum(5, 8);
+        // System.out.println("a = " + nums[0] + " b = " + nums[1]);
+
+        System.out.println(addOne(6));
+
+        //? Convert Upper case to lower case using bits
+        for(char ch ='A'; ch<='Z'; ch++){
+            System.out.println((char)(ch | ' '));
+        }
     }
 }
