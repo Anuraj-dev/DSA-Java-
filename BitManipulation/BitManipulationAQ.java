@@ -14,19 +14,34 @@ public class BitManipulationAQ {
 
     //? Add 1 to an int using bit wise operator
     public static int addOne(int n){
-        n = ~n;
-        return ~n+1;
+        return -(~n);
+    }
+
+    //? Diff way
+    public static int addOne2(int n){
+        int sum = n ^ 1;
+        int carry = (n & 1) <<1;
+        while(carry == 0){
+            sum = sum^1;
+            carry = (sum & 1) <<1;
+        }
+        return sum;
     }
     public static void main(String[] args) {
         //? Checking
         // int nums[] = swapTwoNum(5, 8);
         // System.out.println("a = " + nums[0] + " b = " + nums[1]);
 
+        //? First second way
         System.out.println(addOne(6));
+        //? 2nd way
+        System.out.println(addOne2(6));
 
         //? Convert Upper case to lower case using bits
-        for(char ch ='A'; ch<='Z'; ch++){
-            System.out.println((char)(ch | ' '));
-        }
+        // for(char ch ='A'; ch<='Z'; ch++){
+        //     System.out.println((char)(ch | ' '));
+        // }
+
+        
     }
 }
