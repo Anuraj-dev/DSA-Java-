@@ -9,6 +9,20 @@ public class OOPS {
         System.out.println(p1.tip);
         p1.color = "Yellow";
         System.out.println(p1.color);
+
+        //? Testing bank account
+        BankAccount acc = new BankAccount();
+        acc.username="raja1234";
+        acc.setPassword("this is a password");
+    }
+}
+
+class BankAccount{
+    public String username;
+    private String password;
+
+    void setPassword(String pwd){
+        password = pwd;
     }
 }
 
