@@ -67,3 +67,7 @@ printf '90 80 70\n' | java -cp out Arrays.Array
 ```
 
 Two files are both named `JavaBasics`, in `Operators` and `Variables & Data Types`. A new build replaces the `.class` file with the same name in `out/`, so compile and run one file at a time.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
